@@ -34,7 +34,7 @@ A merge reads the manifest from the head branch and validates it, so a branch wi
 
 Thousands of agents run in parallel on one config, each on its own cloud computer. One session maps to one isolated sandbox with its own machine and branch, so sessions do not collide, and each new session starts from the default branch.
 
-Session compute stays off the self-host box and runs on a sandbox provider, whose default is Daytona, with Platinum and E2B also supported. On the host side, the API's memory limit is the tunable that matters: the default is 640 MiB per API container, raised with `kortix self-host env set KORTIX_API_MEMORY_LIMIT=1024m` on a larger box ([self-hosting](https://kortix.com/docs/host)).
+Session compute stays off the self-host box and runs on a sandbox provider, whose default is Platinum, with Daytona available as a legacy fallback. On the host side, the API's memory limit is the tunable that matters: the default is 640 MiB per API container, raised with `kortix self-host env set KORTIX_API_MEMORY_LIMIT=1024m` on a larger box ([self-hosting](https://kortix.com/docs/host)).
 
 Work can start three ways. A person starts a session on demand; a cron trigger or a signed webhook starts a session with nobody present; and a human-assisted run pauses at an approval gate. A trigger has exactly two types, `cron` and `webhook`, and it starts sessions with a `session_mode` of `fresh`, `reuse`, `pinned`, or `keyed` (the default is `fresh`).
 
