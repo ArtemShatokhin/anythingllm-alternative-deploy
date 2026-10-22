@@ -24,7 +24,7 @@ kortix self-host env set KORTIX_API_MEMORY_LIMIT=1024m
 docker stats --no-stream
 ```
 
-Agent sessions do not run on the self-host box. They run on a separate sandbox provider, and the default is Daytona, with Platinum and E2B also supported. After the stack starts, `kortix self-host configure` prompts for the sandbox provider key ([self-hosting](https://kortix.com/docs/host)).
+Agent sessions do not run on the self-host box. They run on a separate sandbox provider, and the default is Platinum, with Daytona available as a legacy fallback. After the stack starts, `kortix self-host configure` prompts for the sandbox provider key ([self-hosting](https://kortix.com/docs/host)).
 
 If you already run AnythingLLM, its host requirements differ. AnythingLLM publishes a Docker image you pull with `docker pull mintplexlabs/anythingllm:latest` and run as a single service on port 3001, with a host folder mounted at `/app/server/storage` so data survives a restart ([local Docker installation](https://docs.anythingllm.com/installation-docker/local-docker)). The published image runs as UID/GID 1000, and the default vector database needs a CPU with the AVX2 instruction set, which older or virtualized hardware often hides.
 
